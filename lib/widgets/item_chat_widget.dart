@@ -1,8 +1,12 @@
 
 import 'package:flutter/material.dart';
+import 'package:flutter_codigo5_whatsapp/models/chat_model.dart';
 
 class ItemChatWidget extends StatelessWidget {
-  const ItemChatWidget({Key? key}) : super(key: key);
+
+  ChatModel chatModel;
+
+  ItemChatWidget({required this.chatModel});
 
   @override
   Widget build(BuildContext context) {
@@ -13,18 +17,18 @@ class ItemChatWidget extends StatelessWidget {
           backgroundColor: Colors.black12,
           radius: 26,
           backgroundImage: NetworkImage(
-            "https://images.pexels.com/photos/1845534/pexels-photo-1845534.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+            chatModel.avatarURL,
           ),
         ),
         title: Text(
-          "Fátima de las Nieves",
+          chatModel.username,
           style: TextStyle(
             fontSize: 14.0,
             fontWeight: FontWeight.w500,
           ),
         ),
         subtitle: Text(
-          "He enviado los archivos que solicitaste, por favor los revisas.",
+          chatModel.message,
           maxLines: 1,
           overflow: TextOverflow.ellipsis,
           style: TextStyle(fontSize: 13.0),
@@ -34,7 +38,7 @@ class ItemChatWidget extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: [
             Text(
-              "20:24",
+              chatModel.time,
               style: TextStyle(
                 fontSize: 12.0,
                 // color: Colors.black.withOpacity(0.45)
@@ -50,7 +54,7 @@ class ItemChatWidget extends StatelessWidget {
               ),
               alignment: Alignment.center,
               child: Text(
-                "7",
+                chatModel.countMessage.toString(),
                 style: TextStyle(
                   color: Colors.white,
                   fontSize: 10.0,

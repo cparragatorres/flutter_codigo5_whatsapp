@@ -54,5 +54,4 @@ List<ChatModel> chatList = [
     countMessage: 3,
     isTyping: true,
   ),
-
 ];
