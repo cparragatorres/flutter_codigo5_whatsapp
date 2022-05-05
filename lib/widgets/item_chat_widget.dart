@@ -1,9 +1,7 @@
-
 import 'package:flutter/material.dart';
 import 'package:flutter_codigo5_whatsapp/models/chat_model.dart';
 
 class ItemChatWidget extends StatelessWidget {
-
   ChatModel chatModel;
 
   ItemChatWidget({required this.chatModel});
@@ -28,10 +26,13 @@ class ItemChatWidget extends StatelessWidget {
           ),
         ),
         subtitle: Text(
-          chatModel.message,
+          chatModel.isTyping ? "Typing..." : chatModel.message,
           maxLines: 1,
           overflow: TextOverflow.ellipsis,
-          style: TextStyle(fontSize: 13.0),
+          style: TextStyle(
+            fontSize: 13.0,
+            color: chatModel.isTyping ? Color(0xff01C851) : Colors.black.withOpacity(0.45)
+          ),
         ),
         trailing: Column(
           crossAxisAlignment: CrossAxisAlignment.end,
