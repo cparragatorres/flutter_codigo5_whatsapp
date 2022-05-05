@@ -1,5 +1,3 @@
-
-
 import 'package:flutter/material.dart';
 
 class ChatPage extends StatelessWidget {
@@ -10,8 +8,31 @@ class ChatPage extends StatelessWidget {
     return Scaffold(
       body: ListView.builder(
         itemCount: 10,
-        itemBuilder: (BuildContext context, int index){
-          return Text("items");
+        itemBuilder: (BuildContext context, int index) {
+          return ListTile(
+            leading: CircleAvatar(
+              backgroundColor: Colors.black12,
+              radius: 26,
+              backgroundImage: NetworkImage(
+                "https://images.pexels.com/photos/1845534/pexels-photo-1845534.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+              ),
+            ),
+            title: Text(
+              "Fátima de las Nieves",
+              style: TextStyle(
+                fontSize: 14.0,
+                fontWeight: FontWeight.w500,
+              ),
+            ),
+            subtitle: Text(
+              "He enviado los archivos que solicitaste, por favor los revisas.",
+              maxLines: 1,
+              overflow: TextOverflow.ellipsis,
+              style: TextStyle(
+                fontSize: 13.0
+              ),
+            ),
+          );
         },
       ),
     );
