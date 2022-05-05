@@ -28,9 +28,33 @@ class ChatPage extends StatelessWidget {
               "He enviado los archivos que solicitaste, por favor los revisas.",
               maxLines: 1,
               overflow: TextOverflow.ellipsis,
-              style: TextStyle(
-                fontSize: 13.0
-              ),
+              style: TextStyle(fontSize: 13.0),
+            ),
+            trailing: Column(
+              crossAxisAlignment: CrossAxisAlignment.end,
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              children: [
+                Text(
+                  "20:24",
+                  style: TextStyle(
+                    fontSize: 12.0,
+                    // color: Colors.black.withOpacity(0.45)
+                    color: Color(0xff01C851),
+                  ),
+                ),
+                Container(
+                  decoration: BoxDecoration(
+                    color: Color(0xff01C851),
+                  ),
+                  child: Text(
+                    "7",
+                    style: TextStyle(
+                      color: Colors.white,
+                      fontSize: 12.0
+                    ),
+                  ),
+                ),
+              ],
             ),
           );
         },
