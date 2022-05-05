@@ -14,6 +14,14 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: "WhatsApp Clone",
+      theme: ThemeData(
+        appBarTheme: AppBarTheme(
+          color: Color(0xff065E52),
+        ),
+        floatingActionButtonTheme: FloatingActionButtonThemeData(
+          backgroundColor: Color(0xff01C851),
+        ),
+      ),
       home: HomePage(),
     );
   }
