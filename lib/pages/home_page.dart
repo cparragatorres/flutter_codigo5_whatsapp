@@ -5,8 +5,8 @@ class HomePage extends StatefulWidget {
   State<HomePage> createState() => _HomePageState();
 }
 
-class _HomePageState extends State<HomePage> with SingleTickerProviderStateMixin{
-
+class _HomePageState extends State<HomePage>
+    with SingleTickerProviderStateMixin {
   TabController? _tabController;
 
   @override
@@ -22,7 +22,7 @@ class _HomePageState extends State<HomePage> with SingleTickerProviderStateMixin
     return Scaffold(
       floatingActionButton: FloatingActionButton(
         child: Icon(Icons.message),
-        onPressed: (){},
+        onPressed: () {},
       ),
       appBar: AppBar(
         title: Text("WhatsApp"),
@@ -42,23 +42,48 @@ class _HomePageState extends State<HomePage> with SingleTickerProviderStateMixin
         ],
         bottom: TabBar(
           controller: _tabController,
+          indicatorWeight: 3.5,
+          indicatorColor: Colors.white,
           tabs: [
             Tab(
               icon: Icon(Icons.camera_alt),
             ),
             Tab(
-              child: Text("CHATS", style: TextStyle(fontWeight: FontWeight.bold,),),
+              child: Text(
+                "CHATS",
+                style: TextStyle(
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
             ),
             Tab(
-              child: Text("STATUS", style: TextStyle(fontWeight: FontWeight.bold,),),
+              child: Text(
+                "STATUS",
+                style: TextStyle(
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
             ),
             Tab(
-              child: Text("CALLS", style: TextStyle(fontWeight: FontWeight.bold,),),
+              child: Text(
+                "CALLS",
+                style: TextStyle(
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
             ),
           ],
         ),
       ),
+      body: TabBarView(
+        controller: _tabController,
+        children: [
+          Center(child: Text("Página 1")),
+          Center(child: Text("Página 2")),
+          Center(child: Text("Página 3")),
+          Center(child: Text("Página 4")),
+        ],
+      ),
     );
   }
-
 }
