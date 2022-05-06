@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_codigo5_whatsapp/pages/call_page.dart';
 import 'package:flutter_codigo5_whatsapp/pages/chat_page.dart';
 
 class HomePage extends StatefulWidget {
@@ -82,7 +83,7 @@ class _HomePageState extends State<HomePage>
           Center(child: Text("Cámara")),
           ChatPage(),
           Center(child: Text("Status")),
-          Center(child: Text("Calls")),
+          CallPage(),
         ],
       ),
     );
