@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class ChatDetailPage extends StatelessWidget {
@@ -60,61 +61,81 @@ class ChatDetailPage extends StatelessWidget {
         children: [
           //Listado de mensajes
           Container(
-            color: Colors.lightBlueAccent,
+            color: Colors.black.withOpacity(0.14),
           ),
           Align(
             alignment: Alignment.bottomCenter,
-            child: Row(
-              children: [
-                Expanded(
-                  child: TextField(
-                    style: TextStyle(fontSize: 17.0),
-                    cursorColor: Color(0xff065D54),
-                    decoration: InputDecoration(
-                      prefixIcon: Icon(
-                        Icons.sentiment_satisfied_alt_rounded,
-                        size: 30.0,
-                        color: Color(0xff787A79),
-                      ),
-                      hintText: "Type message",
-                      hintStyle: TextStyle(
-                        fontSize: 17.0,
-                        color: Colors.black38,
-                      ),
-                      filled: true,
-                      fillColor: Colors.white,
-                      focusedBorder: OutlineInputBorder(
-                          borderSide: BorderSide.none,
-                          borderRadius: BorderRadius.circular(30.0)),
-                      suffixIcon: Row(
-                        mainAxisSize: MainAxisSize.min,
-                        children: [
-                          IconButton(
-                            onPressed: () {},
-                            icon: Icon(
-                              Icons.attach_file_rounded,
-                              size: 30,
-                              color: Color(0xff787A79),
+            child: Container(
+              margin: const EdgeInsets.symmetric(horizontal: 10.0, vertical: 8.0),
+              child: Row(
+                children: [
+                  Expanded(
+                    child: TextField(
+                      style: TextStyle(fontSize: 17.0),
+                      cursorColor: Color(0xff065D54),
+                      decoration: InputDecoration(
+                        prefixIcon: Icon(
+                          Icons.sentiment_satisfied_alt_rounded,
+                          size: 30.0,
+                          color: Color(0xff787A79),
+                        ),
+                        hintText: "Type message",
+                        hintStyle: TextStyle(
+                          fontSize: 17.0,
+                          color: Colors.black38,
+                        ),
+                        filled: true,
+                        fillColor: Colors.white,
+                        focusedBorder: OutlineInputBorder(
+                            borderSide: BorderSide.none,
+                            borderRadius: BorderRadius.circular(30.0)),
+                        enabledBorder: OutlineInputBorder(
+                            borderSide: BorderSide.none,
+                            borderRadius: BorderRadius.circular(30.0)),
+                        suffixIcon: Row(
+                          mainAxisSize: MainAxisSize.min,
+                          children: [
+                            IconButton(
+                              onPressed: () {},
+                              icon: Icon(
+                                Icons.attach_file_rounded,
+                                size: 30,
+                                color: Color(0xff787A79),
+                              ),
                             ),
-                          ),
-                          IconButton(
-                            onPressed: () {},
-                            icon: Icon(
-                              Icons.camera_alt_rounded,
-                              color: Color(0xff787A79),
-                              size: 30,
+                            IconButton(
+                              onPressed: () {},
+                              icon: Icon(
+                                Icons.camera_alt_rounded,
+                                color: Color(0xff787A79),
+                                size: 30,
+                              ),
                             ),
-                          ),
-                          const SizedBox(
-                            width: 6.0,
-                          ),
-                        ],
+                            const SizedBox(
+                              width: 6.0,
+                            ),
+                          ],
+                        ),
                       ),
                     ),
                   ),
-                ),
-                Icon(Icons.mic),
-              ],
+                  const SizedBox(
+                    width: 8.0,
+                  ),
+                  Container(
+                    padding: const EdgeInsets.all(14.0),
+                    decoration: BoxDecoration(
+                      color: Color(0xff00887B),
+                      shape: BoxShape.circle,
+                    ),
+                    child: Icon(
+                      Icons.mic,
+                      color: Colors.white,
+                      size: 30.0,
+                    ),
+                  ),
+                ],
+              ),
             ),
           ),
         ],
