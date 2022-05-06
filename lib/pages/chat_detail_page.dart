@@ -68,9 +68,7 @@ class ChatDetailPage extends StatelessWidget {
               children: [
                 Expanded(
                   child: TextField(
-                    style: TextStyle(
-                      fontSize: 17.0
-                    ),
+                    style: TextStyle(fontSize: 17.0),
                     cursorColor: Color(0xff065D54),
                     decoration: InputDecoration(
                       prefixIcon: Icon(
@@ -91,7 +89,25 @@ class ChatDetailPage extends StatelessWidget {
                       suffixIcon: Row(
                         mainAxisSize: MainAxisSize.min,
                         children: [
-                          Icon(Icons.camera_alt),
+                          IconButton(
+                            onPressed: () {},
+                            icon: Icon(
+                              Icons.attach_file_rounded,
+                              size: 30,
+                              color: Color(0xff787A79),
+                            ),
+                          ),
+                          IconButton(
+                            onPressed: () {},
+                            icon: Icon(
+                              Icons.camera_alt_rounded,
+                              color: Color(0xff787A79),
+                              size: 30,
+                            ),
+                          ),
+                          const SizedBox(
+                            width: 6.0,
+                          ),
                         ],
                       ),
                     ),
