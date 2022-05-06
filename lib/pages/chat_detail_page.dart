@@ -77,6 +77,13 @@ class ChatDetailPage extends StatelessWidget {
                       topRight: Radius.circular(14.0),
                       topLeft: Radius.circular(0),
                     ),
+                    boxShadow: [
+                      BoxShadow(
+                        color: Colors.black.withOpacity(0.04),
+                        offset: const Offset(4,4),
+                        blurRadius: 10,
+                      ),
+                    ]
                   ),
                   child: Text(
                     "Hola, cómo estas?",
@@ -86,8 +93,28 @@ class ChatDetailPage extends StatelessWidget {
 
               Align(
                 alignment: Alignment.topRight,
-                child: Text(
-                  "Qué tal? estoy muy bien aprendiendo Flutter!",
+                child: Container(
+                  padding: const EdgeInsets.symmetric(horizontal: 10.0, vertical: 6.0),
+                  margin: const EdgeInsets.symmetric(horizontal: 12, vertical: 6.0),
+                  decoration: BoxDecoration(
+                      color: Color(0xffE3FFC4),
+                      borderRadius: BorderRadius.only(
+                        bottomLeft: Radius.circular(14.0),
+                        bottomRight: Radius.circular(14.0),
+                        topRight: Radius.circular(0.0),
+                        topLeft: Radius.circular(14),
+                      ),
+                      boxShadow: [
+                        BoxShadow(
+                          color: Colors.black.withOpacity(0.04),
+                          offset: const Offset(4,4),
+                          blurRadius: 10,
+                        ),
+                      ]
+                  ),
+                  child: Text(
+                    "Qué tal, estoy aprendiendo Flutter",
+                  ),
                 ),
               ),
             ],
