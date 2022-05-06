@@ -1,9 +1,18 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_codigo5_whatsapp/data/data_dummy.dart';
+import 'package:flutter_codigo5_whatsapp/models/chat_message.dart';
 
-class ChatDetailPage extends StatelessWidget {
+class ChatDetailPage extends StatefulWidget {
   const ChatDetailPage({Key? key}) : super(key: key);
+
+  @override
+  State<ChatDetailPage> createState() => _ChatDetailPageState();
+}
+
+class _ChatDetailPageState extends State<ChatDetailPage> {
+
+  final TextEditingController _messageController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -63,43 +72,44 @@ class ChatDetailPage extends StatelessWidget {
           Container(
             color: Colors.black.withOpacity(0.14),
           ),
-
-
           ListView.builder(
             itemCount: chatMessageList.length,
-            itemBuilder: (BuildContext context, int index){
+            itemBuilder: (BuildContext context, int index) {
               return Align(
-                alignment: chatMessageList[index].messageType == "me" ? Alignment.topRight : Alignment.topLeft,
+                alignment: chatMessageList[index].messageType == "me"
+                    ? Alignment.topRight
+                    : Alignment.topLeft,
                 child: Container(
-                  padding: const EdgeInsets.symmetric(horizontal: 10.0, vertical: 6.0),
-                  margin: const EdgeInsets.symmetric(horizontal: 12, vertical: 6.0),
+                  padding: const EdgeInsets.symmetric(
+                      horizontal: 10.0, vertical: 6.0),
+                  margin:
+                      const EdgeInsets.symmetric(horizontal: 12, vertical: 6.0),
                   decoration: BoxDecoration(
-                      color: chatMessageList[index].messageType == "me" ? Color(0xffE3FFC4) : Colors.white,
+                      color: chatMessageList[index].messageType == "me"
+                          ? Color(0xffE3FFC4)
+                          : Colors.white,
                       borderRadius: BorderRadius.only(
                         bottomLeft: Radius.circular(14.0),
                         bottomRight: Radius.circular(14.0),
-                        topRight: chatMessageList[index].messageType == "me" ? Radius.circular(0.0) : Radius.circular(14.0),
-                        topLeft: chatMessageList[index].messageType == "me" ? Radius.circular(14.0) : Radius.circular(0.0),
+                        topRight: chatMessageList[index].messageType == "me"
+                            ? Radius.circular(0.0)
+                            : Radius.circular(14.0),
+                        topLeft: chatMessageList[index].messageType == "me"
+                            ? Radius.circular(14.0)
+                            : Radius.circular(0.0),
                       ),
                       boxShadow: [
                         BoxShadow(
                           color: Colors.black.withOpacity(0.04),
-                          offset: const Offset(4,4),
+                          offset: const Offset(4, 4),
                           blurRadius: 10,
                         ),
-                      ]
-                  ),
-                  child: Text(
-                    chatMessageList[index].messageContent
-                  ),
+                      ]),
+                  child: Text(chatMessageList[index].messageContent),
                 ),
               );
             },
           ),
-
-
-
-
           Align(
             alignment: Alignment.bottomCenter,
             child: Container(
@@ -109,6 +119,7 @@ class ChatDetailPage extends StatelessWidget {
                 children: [
                   Expanded(
                     child: TextField(
+                      controller: _messageController,
                       style: TextStyle(fontSize: 17.0),
                       cursorColor: Color(0xff065D54),
                       decoration: InputDecoration(
@@ -160,16 +171,30 @@ class ChatDetailPage extends StatelessWidget {
                   const SizedBox(
                     width: 8.0,
                   ),
-                  Container(
-                    padding: const EdgeInsets.all(14.0),
-                    decoration: BoxDecoration(
-                      color: Color(0xff00887B),
-                      shape: BoxShape.circle,
-                    ),
-                    child: Icon(
-                      Icons.send,
-                      color: Colors.white,
-                      size: 30.0,
+                  GestureDetector(
+                    onTap: () {
+                      chatMessageList.add(
+                        ChatMessage(
+                          messageContent: _messageController.text,
+                          messageType: "me",
+                        ),
+                      );
+                      _messageController.clear();
+                      setState(() {
+
+                      });
+                    },
+                    child: Container(
+                      padding: const EdgeInsets.all(14.0),
+                      decoration: BoxDecoration(
+                        color: Color(0xff00887B),
+                        shape: BoxShape.circle,
+                      ),
+                      child: Icon(
+                        Icons.send,
+                        color: Colors.white,
+                        size: 30.0,
+                      ),
                     ),
                   ),
                 ],
