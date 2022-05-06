@@ -66,10 +66,11 @@ class ChatDetailPage extends StatelessWidget {
           ),
           Align(
             alignment: Alignment.bottomCenter,
-            child: Container(
-              height: 60,
-              width: 200,
-              color: Colors.yellow,
+            child: Row(
+              children: [
+                Expanded(child: TextField(),),
+                Icon(Icons.mic),
+              ],
             ),
           ),
         ],
