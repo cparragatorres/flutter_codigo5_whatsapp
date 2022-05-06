@@ -58,40 +58,18 @@ class ChatDetailPage extends StatelessWidget {
           ),
         ],
       ),
-      body: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
+      body: Stack(
         children: [
-          Center(
+          //Listado de mensajes
+          Container(
+            color: Colors.lightBlueAccent,
+          ),
+          Align(
+            alignment: Alignment.bottomCenter,
             child: Container(
-              width: 300,
-              height: 300,
-              color: Colors.deepPurple,
-              child: Stack(
-                children: [
-                  Align(
-                    alignment: Alignment.topRight,
-                    child: Container(
-                      height: 200,
-                      width: 200,
-                      color: Colors.yellow,
-                    ),
-                  ),
-                  Align(
-                    alignment: Alignment.bottomLeft,
-                    child: Container(
-                      height: 100,
-                      width: 100,
-                      color: Colors.greenAccent,
-                    ),
-                  ),
-                  Text("Hola"),
-                  Container(
-                    width: 50,
-                    height: 50,
-                    color: Colors.blue,
-                  ),
-                ],
-              ),
+              height: 60,
+              width: 200,
+              color: Colors.yellow,
             ),
           ),
         ],
