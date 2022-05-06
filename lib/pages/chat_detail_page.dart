@@ -59,14 +59,44 @@ class ChatDetailPage extends StatelessWidget {
       ),
       body: Stack(
         children: [
-          //Listado de mensajes
           Container(
             color: Colors.black.withOpacity(0.14),
+          ),
+          ListView(
+            children: [
+              Align(
+                alignment: Alignment.topLeft,
+                child: Container(
+                  padding: const EdgeInsets.symmetric(horizontal: 10.0, vertical: 6.0),
+                  margin: const EdgeInsets.symmetric(horizontal: 12, vertical: 6.0),
+                  decoration: BoxDecoration(
+                    color: Colors.white,
+                    borderRadius: BorderRadius.only(
+                      bottomLeft: Radius.circular(14.0),
+                      bottomRight: Radius.circular(14.0),
+                      topRight: Radius.circular(14.0),
+                      topLeft: Radius.circular(0),
+                    ),
+                  ),
+                  child: Text(
+                    "Hola, cómo estas?",
+                  ),
+                ),
+              ),
+
+              Align(
+                alignment: Alignment.topRight,
+                child: Text(
+                  "Qué tal? estoy muy bien aprendiendo Flutter!",
+                ),
+              ),
+            ],
           ),
           Align(
             alignment: Alignment.bottomCenter,
             child: Container(
-              margin: const EdgeInsets.symmetric(horizontal: 10.0, vertical: 8.0),
+              margin:
+                  const EdgeInsets.symmetric(horizontal: 10.0, vertical: 8.0),
               child: Row(
                 children: [
                   Expanded(
