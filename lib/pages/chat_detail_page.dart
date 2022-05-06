@@ -24,9 +24,7 @@ class ChatDetailPage extends StatelessWidget {
                 children: [
                   Text(
                     "Ximena Lopez",
-                    style: TextStyle(
-                      fontSize: 18.0
-                    ),
+                    style: TextStyle(fontSize: 18.0),
                   ),
                   SizedBox(
                     height: 3.0,
@@ -68,7 +66,37 @@ class ChatDetailPage extends StatelessWidget {
             alignment: Alignment.bottomCenter,
             child: Row(
               children: [
-                Expanded(child: TextField(),),
+                Expanded(
+                  child: TextField(
+                    style: TextStyle(
+                      fontSize: 17.0
+                    ),
+                    cursorColor: Color(0xff065D54),
+                    decoration: InputDecoration(
+                      prefixIcon: Icon(
+                        Icons.sentiment_satisfied_alt_rounded,
+                        size: 30.0,
+                        color: Color(0xff787A79),
+                      ),
+                      hintText: "Type message",
+                      hintStyle: TextStyle(
+                        fontSize: 17.0,
+                        color: Colors.black38,
+                      ),
+                      filled: true,
+                      fillColor: Colors.white,
+                      focusedBorder: OutlineInputBorder(
+                          borderSide: BorderSide.none,
+                          borderRadius: BorderRadius.circular(30.0)),
+                      suffixIcon: Row(
+                        mainAxisSize: MainAxisSize.min,
+                        children: [
+                          Icon(Icons.camera_alt),
+                        ],
+                      ),
+                    ),
+                  ),
+                ),
                 Icon(Icons.mic),
               ],
             ),
