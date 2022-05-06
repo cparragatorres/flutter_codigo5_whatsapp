@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_codigo5_whatsapp/data/data_dummy.dart';
 
 class ChatDetailPage extends StatelessWidget {
   const ChatDetailPage({Key? key}) : super(key: key);
@@ -62,47 +63,23 @@ class ChatDetailPage extends StatelessWidget {
           Container(
             color: Colors.black.withOpacity(0.14),
           ),
-          ListView(
-            children: [
-              Align(
-                alignment: Alignment.topLeft,
-                child: Container(
-                  padding: const EdgeInsets.symmetric(horizontal: 10.0, vertical: 6.0),
-                  margin: const EdgeInsets.symmetric(horizontal: 12, vertical: 6.0),
-                  decoration: BoxDecoration(
-                    color: Colors.white,
-                    borderRadius: BorderRadius.only(
-                      bottomLeft: Radius.circular(14.0),
-                      bottomRight: Radius.circular(14.0),
-                      topRight: Radius.circular(14.0),
-                      topLeft: Radius.circular(0),
-                    ),
-                    boxShadow: [
-                      BoxShadow(
-                        color: Colors.black.withOpacity(0.04),
-                        offset: const Offset(4,4),
-                        blurRadius: 10,
-                      ),
-                    ]
-                  ),
-                  child: Text(
-                    "Hola, cómo estas?",
-                  ),
-                ),
-              ),
 
-              Align(
-                alignment: Alignment.topRight,
+
+          ListView.builder(
+            itemCount: chatMessageList.length,
+            itemBuilder: (BuildContext context, int index){
+              return Align(
+                alignment: chatMessageList[index].messageType == "me" ? Alignment.topRight : Alignment.topLeft,
                 child: Container(
                   padding: const EdgeInsets.symmetric(horizontal: 10.0, vertical: 6.0),
                   margin: const EdgeInsets.symmetric(horizontal: 12, vertical: 6.0),
                   decoration: BoxDecoration(
-                      color: Color(0xffE3FFC4),
+                      color: chatMessageList[index].messageType == "me" ? Color(0xffE3FFC4) : Colors.white,
                       borderRadius: BorderRadius.only(
                         bottomLeft: Radius.circular(14.0),
                         bottomRight: Radius.circular(14.0),
-                        topRight: Radius.circular(0.0),
-                        topLeft: Radius.circular(14),
+                        topRight: chatMessageList[index].messageType == "me" ? Radius.circular(0.0) : Radius.circular(14.0),
+                        topLeft: chatMessageList[index].messageType == "me" ? Radius.circular(14.0) : Radius.circular(0.0),
                       ),
                       boxShadow: [
                         BoxShadow(
@@ -113,12 +90,16 @@ class ChatDetailPage extends StatelessWidget {
                       ]
                   ),
                   child: Text(
-                    "Qué tal, estoy aprendiendo Flutter",
+                    chatMessageList[index].messageContent
                   ),
                 ),
-              ),
-            ],
+              );
+            },
           ),
+
+
+
+
           Align(
             alignment: Alignment.bottomCenter,
             child: Container(
@@ -186,7 +167,7 @@ class ChatDetailPage extends StatelessWidget {
                       shape: BoxShape.circle,
                     ),
                     child: Icon(
-                      Icons.mic,
+                      Icons.send,
                       color: Colors.white,
                       size: 30.0,
                     ),
