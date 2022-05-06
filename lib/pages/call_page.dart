@@ -41,13 +41,18 @@ class CallPage extends StatelessWidget {
                   Text(
                     "Ayer 11:02 pm",
                     style: TextStyle(
-                        fontSize: 13.0,
-                        color: Colors.black.withOpacity(0.45),
+                      fontSize: 13.0,
+                      color: Colors.black.withOpacity(0.45),
                     ),
                   ),
                 ],
               ),
-              trailing: Icon(Icons.call,color: Color(0xff01C851,),),
+              trailing: Icon(
+                Icons.call,
+                color: Color(
+                  0xff01C851,
+                ),
+              ),
             ),
           );
         },
